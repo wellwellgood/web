@@ -1,26 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  /* overflow-y: hidden; */
-  /* overflow-x: hidden; */
 }
 
 .circlediv{
   position: fixed;
+  display: flex;
+  background-color: #fff;
   width: 100%;
   height: 100vh;
-  background-color: #f0f0f0;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
+  overflow: hidden;
 }
-.bg{
+.backimg{
+  background: url(dlalwl/shutterstock_351901331.webp);
+  z-index: -10;
+  background-position: center;
+  background-size: cover;
+  width: 98%;
+  margin-left: calc(130px + 4%);
+  height: calc(100vh - 50px);
+}
+
+/* ----------------------- side btn ----------------------- */
+.webimg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2%;
+  height: 100vh;
+  border-right: 2px solid #fff;
+  /* ----------- 배경 사진으로 수정 --------------- */
+  /* background: powderblue; */
+}
+.webimg ul{
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  text-align: center;
+  font-size: 13px;
+  z-index: 3;
+}
+.webimg ul li{
+  width: 130px;
+  height: 73px;
+  line-height: center;
+}
+.webimg ul li button{
+  width: 130px;
+  height: 60px;
+  border: 2px solid #fff;
+  transform: translate3d(0,0,0);
+  transition: 0.1s ease-out;
+  clip-path: polygon(32% 0, 100% 0, 100% 30%, 100% 70%, 70% 100%, 0 100%, 0% 70%, 0% 30%);
+}
+.webimg ul li button::before{
+  content: "";
+  position: absolute;
+  background: #02F3FF;
+  top: -50%;
+  left: 0;
+  width: 130px;
+  height: 100px;
+  opacity: 0.7;
+}
+.webimg ul li button::after{
+  content: "";
+  position: absolute;
+  background: url(dlalwl/pngkey.com-green-line-png-1396320-removebg-preview.png);
+  top: -50%;
+  left: 0;
+  width: 128px;
+  height: 98px;
+  background-size: 100px;
+}
+.webimg ul li button:hover{
+  transform: translate3d(20px,5px,5px);
+  transition: 0.1s ease-out;
+}
+.webimg ul li button a{
+  color: #000;
+  font-size: 18px;
+  text-decoration: none;
+  list-style: none;
+  text-decoration-line: none;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* ----------------------- img box ----------------------- */
+
+.box{
+  display: none;
+  /* animation: fadeout 0.3s ease; */
+}
+.box::-webkit-scrollbar{
+  width: 5px;
+  height: 5px;
+}
+.box::-webkit-scrollbar-thumb{
+  background-color: tomato;
+  border-radius: 10px;
+}
+.box::-webkit-scrollbar-track{
+  background-color: #0008ff;
+  border-radius: 0 3px 3px 0;
+}
+.close{
   position: fixed;
-  top: 80%;
-  left: 20%;
+  display: flex;
+  width: 20px;
+  height: 20px;
+  top: 8%;
+  left: 78.3%;
+  background: #000;
+  color: #fff;
+  z-index: 66;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  line-height: 20px;
+}
+.close:hover{
+  background-color: red;
+}
+.on h2{
+  display: block;
+  font-size: 16px;
+  width: 545px;
+  height: 22px;
+  border-bottom: 2px solid #fff;
+  position: fixed;
+  overflow: hidden;
+  z-index: 55;
+  background: #000;
+  border-radius: 3px 3px 0 0;
+}
+
+.on{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  top: 8%;
+  left: 320%;
+  visibility: visible;
+  width: 550px;
+  height: 700px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 3px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  animation: fadein 0.3s  ease;
+}
+#btn2 .on{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  top: 8%;
+  left: 320%;
+  visibility: visible;
+  width: 550px;
+  height: 750px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 3px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  animation: fadein 0.3s  ease;
+}
+@keyframes fadein {
+  0%{transform: translateX(0) rotateX(0) scale(0); top: -30%; left: 0%;}
+  50%{transform: translateX(300px) , scale(320px) , rotateX(180deg);}
+  100%{transform: scale(550px) , translateX(500px) , rotateX(360deg); top: 8%; left: 320%;}
+}
+
+@keyframes fadout {
+  0%{transform: translateX(500px) rotateX(360deg) scale(550px); top: -30%; left: 0%;}
+  50%{transform: translateX(300px) scale(320px) rotateX(180deg);}
+  100%{transform: scale(0px) translateX(0px) rotateX(0deg);top: 8%; left: 320%;}
+}
+
+#box1 span::after{
+  content: "";
+  position: absolute;
+  background: url(dlalwl/제네시스.JPG);
+  background-size: cover;
+  overflow: hidden;
+  background-position: top;
+  top: 30px;
+  left: 0;
+  width: 550px;
+  height: 1500px;
+  border-radius: 0px 0px 3px 3px;
+}
+#box2 span::after{
+  content: "";
+  position: absolute;
+  background: url(dlalwl/LH청약+.JPG);
+  overflow: hidden;
+  background-size: cover;
+  background-position: top;
+  left: 0;
+  width: 1500px;
+  height: 750px;
+  border-radius: 0px 0px 3px 3px;
+}
+#box3 span::after{
+  content: "";
+  position: absolute;
+  background: url(dlalwl/인클루트웍스.JPG);
+  background-size: cover;
+  background-position: top;
+  overflow: hidden;
+  left: 0;
+  width: 550px;
+  height: 2030px;
+  border-radius: 0px 0px 3px 3px;
+}
+.box p{
+  position: absolute;
+  bottom: 0;
+  display: inline-block;
+}
+
+
+/* ----------------------- ark ----------------------- */
+
+.bg{
+  position: absolute;
+  top: 85%;
+  left: 3%;
   transform: translate(-50% , -50%);
-  clear: both;
+  z-index: 55;
 }
 .circle{
   border-radius: 50%;
@@ -29,7 +253,8 @@
   width: 330px;
   height: 330px;
   position: absolute;
-  background-color: #f0f0f0;
+  /* background-color: #f0f0f0; */
+  opacity: 1;
   top: 50%;
   left: 50%;
   /* border: 1px solid #000; */
@@ -39,10 +264,11 @@
   position: absolute;
   width: 300px;
   height: 300px;
-  background-color: #000000;
+  background-color: #00d6df;
+  /* opacity: 0.1; */
   border:  solid 10px rgba(0, 0, 0, 0);
-  border-bottom: solid 10px #0088ff;
-  border-left: solid 10px #0088ff;
+  border-bottom: solid 10px #0d5faf;
+  border-left: solid 10px #0d5faf;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -54,8 +280,8 @@
   width: 255px;
   height: 255px;
   border: solid 10px rgba(0, 0, 0, 0);
-  border-bottom: solid 10px #0088ff;
-  border-left: solid 10px #0088ff;
+  border-bottom: solid 10px #00d6df;
+  border-left: solid 10px #00d6df;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -66,7 +292,7 @@
 .circle3{
   width: 250px;
   height: 250px;
-  border: solid 5px #0008ff;
+  border: solid 5px #02F3FF;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -108,19 +334,19 @@
   animation: spin 3.5s linear infinite reverse;
 }
 .circle7{
-  width: 140px;
-  height: 140px;
+  width: 200px;
+  height: 200px;
   border: solid 5px #0088ff;
   border-bottom: solid 5px #000000;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50% , -50%) rotate(45deg);
-  animation: spin2 3.5s linear infinite reverse;
+  animation: spin2 3.5s linear infinite;
 }
 .circle8{
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
   background: #0008ff;
   position: absolute;
   top: 50%;
@@ -129,8 +355,8 @@
   animation: spin 2s linear infinite ;
 }
 .circle9{
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border: solid 13px #0008ff;
   position: absolute;
   top: 50%;
@@ -139,8 +365,8 @@
   animation: spin2 3.5s linear infinite reverse;
 }
 .circle10{
-  width: 115px;
-  height: 115px;
+  width: 150px;
+  height: 150px;
   border: solid 13px #0008ff;
   border-top: solid 13px #000000;
   border-bottom: solid 13px #000000;
@@ -167,40 +393,51 @@
   }
 }
 
-.roleimg{
- position: absolute;
-  top: 78%;
-  left: 18%;
-  animation: roll 5s linear infinite;
-  z-index: -1;
-}
 
-.roleimg li{
-  list-style: none;
-  transform: rotate(calc(360deg / 5 * var(--i)));
-  transform-origin:50% 50%;
+/* ----------------------- circle box ----------------------- */
+
+
+.role{
+position: absolute;
+display: flex;
+justify-content: center;
+align-items: center;
+top: 85%;
+left: 3%;
+animation: roll 10s linear infinite;
 }
-.roleimg li img{
+.roleimg:hover{
+  animation-play-state: paused;
+}
+.roleimg.active:hover{
+  animation-play-state: paused;
+}
+.circleimg{
   position: absolute;
-  width: 250px;
-  height: 250px;
+  left: 50%;
+  top: 50%;
 }
+.circleimg::before{
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  transform: rotate(98deg);
+  border: 1px solid #02F3FF;
+}
+
 @keyframes roll{
-  0%{
-    transform: rotate(0deg);
-  }
-  100%{
-    transform: rotate(360deg);
-  }
+  0%{transform: rotate(0deg);}
+  100%{transform: rotate(360deg);}
 }
-
-
-.underbar{
+.footer1{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(black , silver);
   width: 100%;
-  height: 80px;
-  opacity: 0.7;
-  background-color: #fff;
-  border-top: 10px solid #0088ff;
-  margin-top: 80vh;
-  transform: rotateY(180deg);
+  height: 50px;
+  border-top: 5px solid #0088ff;
+  z-index: 99;
+  overflow: hidden;
 }
