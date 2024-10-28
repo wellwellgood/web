@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 * {
   margin: 0;
@@ -9,18 +9,17 @@
 .circlediv{
   position: fixed;
   display: flex;
-  background-color: #fff;
   width: 100%;
   height: 100vh;
   overflow: hidden;
 }
 .backimg{
-  background: url(dlalwl/shutterstock_351901331.webp);
+  background: #000;
   z-index: -10;
   background-position: center;
   background-size: cover;
-  width: 98%;
-  margin-left: calc(130px + 4%);
+  width: 100%;
+  /* margin-left: calc(130px + 4%); */
   height: calc(100vh - 50px);
 }
 
@@ -34,9 +33,7 @@
   align-items: center;
   padding: 2%;
   height: 100vh;
-  border-right: 2px solid #fff;
   /* ----------- 배경 사진으로 수정 --------------- */
-  /* background: powderblue; */
 }
 .webimg ul{
   display: flex;
@@ -47,9 +44,9 @@
   z-index: 3;
 }
 .webimg ul li{
+  display: inline-block;
   width: 130px;
   height: 73px;
-  line-height: center;
 }
 .webimg ul li button{
   width: 130px;
@@ -58,16 +55,18 @@
   transform: translate3d(0,0,0);
   transition: 0.1s ease-out;
   clip-path: polygon(32% 0, 100% 0, 100% 30%, 100% 70%, 70% 100%, 0 100%, 0% 70%, 0% 30%);
+
 }
 .webimg ul li button::before{
   content: "";
   position: absolute;
-  background: #02F3FF;
+  background: #12e2ff;
   top: -50%;
   left: 0;
   width: 130px;
   height: 100px;
   opacity: 0.7;
+  box-shadow: 0 10px -10px 0 !important;
 }
 .webimg ul li button::after{
   content: "";
@@ -80,7 +79,11 @@
   background-size: 100px;
 }
 .webimg ul li button:hover{
-  transform: translate3d(20px,5px,5px);
+  transform: translate3d(30px,5px,5px);
+  transition: .4s cubic-bezier(.25,1,.5,1),-webkit-transform .4s cubic-bezier(.25,1,.5,1)
+}
+.webimg ul li button:active{
+  transform: translate3d(30px,5px,5px);
   transition: 0.1s ease-out;
 }
 .webimg ul li button a{
@@ -92,6 +95,7 @@
   font-family: "Bebas Neue", sans-serif;
   font-weight: 600;
   font-style: normal;
+
 }
 
 /* ----------------------- img box ----------------------- */
@@ -112,13 +116,12 @@
   background-color: #0008ff;
   border-radius: 0 3px 3px 0;
 }
-.close{
-  position: fixed;
+.box .close{
+  position: absolute;
   display: flex;
-  width: 20px;
   height: 20px;
-  top: 8%;
-  left: 78.3%;
+  top: 0%;
+  left: 99%;
   background: #000;
   color: #fff;
   z-index: 66;
@@ -129,13 +132,52 @@
   cursor: pointer;
   line-height: 20px;
 }
-.close:hover{
+@media (max-width:1397px) {
+  .box.close{
+      position: absolute;
+      display: flex;
+      width: 20px;
+      height: 20px;
+      top: 0%;
+      left: 96%;
+      background: #000;
+      color: #fff;
+      z-index: 66;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      text-align: center;
+      cursor: pointer;
+      line-height: 20px;
+  }
+}
+@media (min-width:760px){
+  .box.close{
+    position: absolute;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    top: 0%;
+    left: 96%;
+    background: #000;
+    color: #fff;
+    z-index: 66;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 20px;
+}
+}
+
+.box.close:hover{
   background-color: red;
 }
 .on h2{
   display: block;
   font-size: 16px;
-  width: 545px;
+  width: 1480px;
   height: 22px;
   border-bottom: 2px solid #fff;
   position: fixed;
@@ -152,11 +194,13 @@
   justify-content: space-between;
   align-items: center;
   top: 8%;
-  left: 320%;
+  left: 100%;
   visibility: visible;
-  width: 550px;
-  height: 700px;
+  width: 1500px;
+  height: 1500px;
   background-color: #000;
+  border: 2px solid #12e2ff;
+  box-shadow: #12e2ff 0px 2px 4px 0px, #12e2ff 0px 2px 16px 0px;
   color: #fff;
   border-radius: 3px;
   overflow-y: scroll;
@@ -172,25 +216,13 @@
   top: 8%;
   left: 320%;
   visibility: visible;
-  width: 550px;
-  height: 750px;
+  width: 1500px;
+  height: 1500px;
   background-color: #000;
   color: #fff;
   border-radius: 3px;
   overflow-y: hidden;
   overflow-x: scroll;
-  animation: fadein 0.3s  ease;
-}
-@keyframes fadein {
-  0%{transform: translateX(0) rotateX(0) scale(0); top: -30%; left: 0%;}
-  50%{transform: translateX(300px) , scale(320px) , rotateX(180deg);}
-  100%{transform: scale(550px) , translateX(500px) , rotateX(360deg); top: 8%; left: 320%;}
-}
-
-@keyframes fadout {
-  0%{transform: translateX(500px) rotateX(360deg) scale(550px); top: -30%; left: 0%;}
-  50%{transform: translateX(300px) scale(320px) rotateX(180deg);}
-  100%{transform: scale(0px) translateX(0px) rotateX(0deg);top: 8%; left: 320%;}
 }
 
 #box1 span::after{
@@ -202,7 +234,7 @@
   background-position: top;
   top: 30px;
   left: 0;
-  width: 550px;
+  width: 1500px;
   height: 1500px;
   border-radius: 0px 0px 3px 3px;
 }
@@ -241,13 +273,13 @@
 
 .bg{
   position: absolute;
-  top: 85%;
-  left: 3%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50% , -50%);
-  z-index: 55;
 }
 .circle{
   border-radius: 50%;
+  z-index: 30;
 }
 .circle0{
   width: 330px;
@@ -273,7 +305,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50% , -50%);
-  animation: spin 3.5s linear infinite;
+  animation: spin 5s linear  infinite reverse;
 }
 
 .circle2{
@@ -395,40 +427,150 @@
 
 
 /* ----------------------- circle box ----------------------- */
+.circlebar{
+  width: 390px;
+  height: 340px;
+  background-color: none;
+  animation: sec 30s linear infinite;
+  z-index: 1;
+}
 
-
-.role{
-position: absolute;
-display: flex;
-justify-content: center;
-align-items: center;
-top: 85%;
-left: 3%;
-animation: roll 10s linear infinite;
-}
-.roleimg:hover{
-  animation-play-state: paused;
-}
-.roleimg.active:hover{
-  animation-play-state: paused;
-}
-.circleimg{
+.circlebar span{
   position: absolute;
-  left: 50%;
-  top: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(calc(4.5deg * var(--i)));
+  visibility: visible;
+  pointer-events: none;
 }
-.circleimg::before{
+.circlebar span::before{
   content: '';
   position: absolute;
-  width: 50px;
-  height: 50px;
-  transform: rotate(98deg);
-  border: 1px solid #02F3FF;
+  top: calc(50% - 7.5px);
+  width: 30px;
+  height: 5px;
+  background: #fff;
+  pointer-events: initial;
+}
+.circlebar span i{
+  content: '';
+  position: absolute;
+  top: calc(50% - 7.5px);
+  width: 30px;
+  height: 5px;
+  background: #fff;
+  pointer-events: initial;
+}
+.circlebar span:nth-of-type(5n+5)::before{
+  transform: scaleX(1.5);
+}
+.circlebar span i.hover-active{
+  position: absolute;
+  width: 302px;
+  height: 302px;
+  top: 2%;
+  left: -55%;
+  background: #12e2ff;
+  transform: rotate(270deg);
+  background: url(dlalwl/제네시스.JPG);
+  background-size: cover;
+  backdrop-filter: blur(15px);
+  clip-path: polygon(52% 100%, 100% 8%, 92% 0%, 36% 0%, 22% 15%, 0 15%, 23% 53%, 23% 64%);
+  display: block;
+  z-index: 5;
+}
+@keyframes sec{
+  0%{transform: rotate(360deg);}
+  100%{transform: rotate(0deg);}
 }
 
-@keyframes roll{
-  0%{transform: rotate(0deg);}
-  100%{transform: rotate(360deg);}
+
+.hover-active{
+  background: #12e2ff;
+  transform: scale(2);
+}
+
+.clipimg{
+position: absolute;
+z-index: 30;
+width: 350px;
+height: 350px;
+top: 0%;
+left: 0%;
+z-index: 5;
+}
+.clipimg .path1{
+  position: absolute;
+  width: 302px;
+  height: 302px;
+  top: 2%;
+  left: -55%;
+  background: #12e2ff;
+  transform: rotate(270deg);
+  clip-path: polygon(52% 100%, 100% 8%, 92% 0%, 36% 0%, 22% 15%, 0 15%, 23% 53%, 23% 64%);
+  background-color: rgba(255,255,255,0.1);  /* 요소를 반투명 처리 해준 후 */
+  backdrop-filter: blur(15px);
+  display: none;
+}
+.clipimg .pathimg1-1{
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: #fff;
+  clip-path: polygon(52% 100%, 100% 8%, 92% 0%, 36% 0%, 22% 15%, 0 15%, 23% 50%, 23% 64%);
+  background-color: rgba(255,255,255,0.1);  /* 요소를 반투명 처리 해준 후 */
+  backdrop-filter: blur(15px);
+  /* z-index: 99; */
+  display: none;
+}
+.clipimg .path1 img{
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  width: 100px;
+  height: 50px;
+
+}
+/* .clipimg .path2{
+  position: absolute;
+  width: 150px;
+  height: 180px;
+  top: -20%;
+  left: 10%;
+  background: #12e2ff;
+  border-radius: 30px;
+  transform: rotate(0deg);
+  clip-path: polygon(81% 100%, 81% 65%, 100% 53%, 100% 0, 36% 0, 24% 11%, 0 11%, 1% 51%, 52% 68%, 52% 100%);
+} */
+.clipimg .path3{
+  position: absolute;
+  width: 150px;
+  height: 60px;
+  top: 73%;
+  left: -23%;
+  background: #12e2ff;
+  clip-path: polygon(0% 50%, 0 100%, 100% 100%, 100% 0, 30% 0);
+  background-color: rgba(255,255,255,0.1);  /* 요소를 반투명 처리 해준 후 */
+  backdrop-filter: blur(15px);
+  border: 2px solid #12e2ff;
+}
+.clipimg .path3 p{
+  text-align: center;
+  font-size: 22px;
+  font-weight: 900;
+  margin-top: 22px;
+  color: #fff;
+}
+.clipimg .path1:hover{
+  transform: scale(1.1) rotate(270deg) !important;
+}
+/* .clipimg .path2:hover{
+  transform: scale(1.1) rotate(0deg) !important;
+} */
+.clipimg .path3:hover{
+  transform: scale(1.1) !important;
 }
 .footer1{
   position: absolute;
@@ -437,7 +579,8 @@ animation: roll 10s linear infinite;
   background: linear-gradient(black , silver);
   width: 100%;
   height: 50px;
-  border-top: 5px solid #0088ff;
+  border-top: 5px solid #12e2ff;
+  /* box-shadow: 0px -15px 5px -2px #12e2ff; */
   z-index: 99;
   overflow: hidden;
 }
