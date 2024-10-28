@@ -35,10 +35,33 @@ $(document).ready(function () {
 let container = document.querySelector(".role");
 let totalCircle = 80;
 let angleStep = 360 / totalCircle;
-for (let i = 0; i < totalCircle; i++){
-    let circle = document.createElement("div");
-    circle.classList.add("circleimg");
-    let rotation = i * angleStep;
-    circle.style.transform = `rotate(${rotation}deg) translate(165px)`;
-    container.appendChild(circle);
+let circlebar = document.querySelector('.circlebar');
+
+// 360개의 span 요소와 그 안에 i 태그를 추가하는 반복문
+for (var i = 0; i <= 360; i++) {
+    let span = document.createElement('span');
+    let itag = document.createElement('i');
+    span.style.setProperty('--i', i);  // 각 span에 --i 속성 설정
+    span.appendChild(itag);
+    circlebar.appendChild(span);
 }
+
+// 모든 i 요소 선택 (NodeList 반환)
+const hoverboxes = document.querySelectorAll('i');
+var i = 0;
+const value = 5;
+
+function triggerElement() {
+    hoverboxes.forEach(box => box.classList.remove("hover-active"));
+
+    hoverboxes[i].classList.add("hover-active");
+    hoverboxes[i].style.setProperty('--i', i);
+
+    i = (i + value) % hoverboxes.length;
+
+    setTimeout(() => {
+        hoverboxes[i].classList.remove("hover-active");
+    }, 5000);
+}
+
+setInterval(triggerElement, 2000);
